@@ -56,9 +56,9 @@ public class GamePanel extends JPanel implements Runnable {
 		setBackground(Color.black);
 		addMouseMotionListener(mouse);
 		addMouseListener(mouse);
-//		setPieces();
+		setPieces();
 //		testPromotion();
-		testIllegal();
+//		testIllegal();
 		copyPieces(pieces, simPieces);
 	}
 	
@@ -503,58 +503,58 @@ public class GamePanel extends JPanel implements Runnable {
 		
 	
 
-//	private boolean isStalemate() {
-//		int count = 0;
-//		for(Piece piece:simPieces) {
-//			if(piece.color != currentColor) {
-//				count++;
-//			}
-//			
-//		}
-//		if(count==1) {
-//			if(kingCanMove(getKing(true))==false) {
-//				return true;
-//			}
-//		}
-//		
-//		return false;
-//	}
-		
 	private boolean isStalemate() {
-	    boolean canMove = false; // Flag to track if any piece can move
-	    Piece king = null; // Reference to the current player's King
-
-	    // Create a copy of the list to avoid modifying the original list while iterating
-	    List<Piece> piecesCopy = new ArrayList<>(simPieces);
-
-	    for (Piece piece : piecesCopy) {
-	        // Skip pieces that don't belong to the current player
-	        if (piece.color != currentColor) {
-	            continue;
-	        }
-
-	        // If the piece is a King, store it for further checks
-	        if (piece.type == Type.KING) {
-	            king = piece;
-	            // Check if the King can move
-	            if (kingCanMove(getKing(true))) {
-	                canMove = true; // The King can move, so it's not a stalemate
-	            }
-	        } else {
-	            // Check if any other piece can move
-	            if (piece.canMove(piece.col, piece.row)) {
-	                canMove = true; // Another piece can move, so it's not a stalemate
-	            }
-	        }
-	    }
-
-	    // If the King cannot move and no other pieces can move, it's a stalemate
-	    if (!canMove && king != null && kingCanMove(getKing(true)) == false) {
-	        return true; // Return true for stalemate
-	    }
-
-	    return false; // Not a stalemate if the player can move a piece
+		int count = 0;
+		for(Piece piece:simPieces) {
+			if(piece.color != currentColor) {
+				count++;
+			}
+			
+		}
+		if(count==1) {
+			if(kingCanMove(getKing(true))==false) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
+		
+//	private boolean isStalemate() {
+//	    boolean canMove = false; // Flag to track if any piece can move
+//	    Piece king = null; // Reference to the current player's King
+//
+//	    // Create a copy of the list to avoid modifying the original list while iterating
+//	    List<Piece> piecesCopy = new ArrayList<>(simPieces);
+//
+//	    for (Piece piece : piecesCopy) {
+//	        // Skip pieces that don't belong to the current player
+//	        if (piece.color != currentColor) {
+//	            continue;
+//	        }
+//
+//	        // If the piece is a King, store it for further checks
+//	        if (piece.type == Type.KING) {
+//	            king = piece;
+//	            // Check if the King can move
+//	            if (kingCanMove(getKing(true))) {
+//	                canMove = true; // The King can move, so it's not a stalemate
+//	            }
+//	        } else {
+//	            // Check if any other piece can move
+//	            if (piece.canMove(piece.col, piece.row)) {
+//	                canMove = true; // Another piece can move, so it's not a stalemate
+//	            }
+//	        }
+//	    }
+//
+//	    // If the King cannot move and no other pieces can move, it's a stalemate
+//	    if (!canMove && king != null && kingCanMove(getKing(true)) == false) {
+//	        return true; // Return true for stalemate
+//	    }
+//
+//	    return false; // Not a stalemate if the player can move a piece
+//	}
 
 
 	
