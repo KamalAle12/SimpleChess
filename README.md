@@ -58,7 +58,7 @@ This is a basic chess game implementation in Java, where players can play chess 
 
 Here is a screenshot of the game in action (text-based or GUI-based):
 
-![Chess Game Output](./images/chess_game_output.png)
+![Chess Game Output](./output.png)
 
 In the image above, you can see the chessboard with pieces at their starting positions. The game allows players to interact with the board and make moves using either text input or a graphical interface.
 
